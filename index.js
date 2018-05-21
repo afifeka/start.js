@@ -5,10 +5,6 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-
-  bot.user.setActivity("Coding's | Coming Soon!", {type: "PLAYING"});
-
-  //bot.user.setGame("on SourceCade!");
 });
 
 bot.on("message", async message => {

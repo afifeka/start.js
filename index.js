@@ -11,7 +11,7 @@ bot.on("guildMemberAdd", member => {
 	
 	const log = bot.channels.get("448008196410572801")
 	let uembed = new Discord.RichEmbed()
-	.setDescription(`A new player has joined the server, \n Name: ${member} \n Total user: ${member.guild.users.size} \n Read rules!`)
+	.setDescription(`A new player has joined the server, \n Name: ${member} \n Total user: **Error** \n Read rules!`)
 	log.send(uembed)
 });
 
@@ -19,7 +19,7 @@ bot.on("memberGuildRemove", member => {
 	
 	const log = bot.channels.get("448008196410572801")
 	let uembed = new Discord.RichEmbed()
-	.setDescription(`A last player has leave the server, \n Name: ${member} \n Total user: ${member.guild.users.size} \n Read rules!`)
+	.setDescription(`A last player has leave the server, \n Name: ${member} \n Total user: **Error** \n Read rules!`)
 	log.send(uembed)
 });
 

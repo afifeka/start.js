@@ -100,6 +100,31 @@ bot.on("message", async message => {
 
     return;
   }
+	
+  if(cmd === `${prefix}warn`){
+	
+	let wUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!wUser) return message.channel.send("Can't find user!");
+        let wReason = args.join(" ").slice(22);
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+        if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+  
+  let wembed = new Discord.RichEmbed()
+    .setDescription("Warned")
+    .setColor("#e56b00")
+    .addField("Warned User", `**${wUser}**`)
+    .addField("Warned By", `**<@${message.author.id}>**`)
+    .addField("Reason", `${wReason}`);
+    
+    let warnedChannel = message.guild.channels.find(`name`, "mod-logs");
+    if(!warnedChannel) return message.channel.send("Can't find **mod-logs** channel.")
+    
+    message.delete().catch(O_o=>{});
+    warnedChannel.send(wembed);
+    message.channel.send("Success warned the player");
+
+  return; 
+}
 
 
 

@@ -34,8 +34,8 @@ bot.on("message", async message => {
     .addField("Kicked By", `**<@${message.author.id}>**`)
     .addField("Reason", `${kReason}`);
 
-    let kickChannel = message.guild.channels.find(`name`, "public-logs");
-    if(!kickChannel) return message.channel.send("Can't find channel.");
+    let kickChannel = message.guild.channels.find(`name`, "mod-logs");
+    if(!kickChannel) return message.channel.send("Can't find **mod-logs** channel.");
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
@@ -61,8 +61,8 @@ bot.on("message", async message => {
     .addField("Banned By", `**<@${message.author.id}>**`)
     .addField("Reason", `**${bReason}**`);
 
-    let incidentchannel = message.guild.channels.find(`name`, "public-logs");
-    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+    let incidentchannel = message.guild.channels.find(`name`, "mod-logs");
+    if(!incidentchannel) return message.channel.send("Can't find **mod-logs** channel.");
 
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
@@ -107,7 +107,7 @@ bot.on("message", async message => {
         if(!wUser) return message.channel.send("Can't find user!");
         let wReason = args.join(" ").slice(22);
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
-        if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+        if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be warned!");
   
   let wembed = new Discord.RichEmbed()
     .setDescription("Warned")

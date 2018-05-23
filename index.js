@@ -125,11 +125,12 @@ bot.on("message", async message => {
 
   return; 
 }
-	
+
   if(cmd === `${prefix}info`){
 	
-	message.channel.send("
-			     
+	message.channel.send(`
+
+**Statistics**
 \`\`\`
 STATISTICS
 • Mem Usage    : ${(process.memoryUsage().heapUsed / 1024 / 
@@ -141,7 +142,7 @@ STATISTICS
 • Channels     : ${bot.channels.size}
 • Discord.js   : v${Discord.version}
 \`\`\``);
-");
+`);
 };
 
 

@@ -7,21 +7,6 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 });
 
-bot.on("guildMemberAdd", member => {
-	
-	const log = bot.channels.get("448008196410572801")
-	let uembed = new Discord.RichEmbed()
-	.setDescription(`A new player has joined the server, \n Name: ${member} \n Total user: **Error** \n Read rules!`)
-	log.send(uembed)
-});
-
-bot.on("memberGuildRemove", member => {
-	
-	const log = bot.channels.get("448008196410572801")
-	let uembed = new Discord.RichEmbed()
-	.setDescription(`A last player has leave the server, \n Name: ${member} \n Total user: **Error** \n Read rules!`)
-	log.send(uembed)
-});
 
 bot.on("message", async message => {
   if(message.author.bot) return;
@@ -54,6 +39,9 @@ bot.on("message", async message => {
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
+	  
+    message.delete().catch(O_o=>{});
+    message.channel.send("Success kicked the player");
 
     return;
   }
@@ -78,6 +66,9 @@ bot.on("message", async message => {
 
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
+
+    message.delete().catch(O_o=>{});
+    message.channel.send("Success banned the player");
 
 
     return;
@@ -105,6 +96,7 @@ bot.on("message", async message => {
 
     message.delete().catch(O_o=>{});
     reportschannel.send(reportEmbed);
+    message.channel.send("Success report this player");
 
     return;
   }

@@ -143,7 +143,6 @@ STATISTICS
 • Channels     : ${bot.channels.size}
 • Discord.js   : v${Discord.version}
 \`\`\``);
-`);
 };
 
 

@@ -90,7 +90,7 @@ bot.on("message", async message => {
 };
 	
   if(cmd === `${prefix}ev`){
-    if (message.author.id !== '449679659810947082') return;
+    if (message.author.id !== '401327121580032000') return;
     try {
         let codein = args.join(" ");
         let code = eval(codein);

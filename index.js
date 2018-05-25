@@ -80,13 +80,32 @@ bot.on("message", async message => {
     bot.unbanReason = reason;
     bot.unbanAuth = message.author;
     const user = args[0];
-    const modlog = bot.channels.find('name', 'l---server-logs---l');
-    if (!modlog) return message.reply('I cannot find a mod-log channel');
+    const modlog = bot.channels.find('name', 'mod-logs');
+    if (!modlog) return message.reply('I cannot find a mod-logs channel');
     if (reason.length < 1) return message.reply('You must supply a reason for the unban.');
     if (!user) return message.reply('You must supply a User Resolvable, such as a user id.').catch(console.error);
     message.guild.unban(user);
     message.reply(`Successfuly unbanned <@${user}>`)
 };
+	
+  if(cmd === `${prefix}ev`){
+    if (message.author.id !== '331616752767205378') return;
+    try {
+        let codein = args.join(" ");
+        let code = eval(codein);
+
+        if (typeof code !== 'string')
+            code = require('util').inspect(code, { depth: 0 });
+        let embed = new Discord.RichEmbed()
+        .setAuthor('Evaluate')
+        .setColor("RANDOM")
+        .addField('📥 Input', `\`\`\`js\n${codein}\`\`\``)
+        .addField('📤 Output', `\`\`\`js\n${code}\n\`\`\``)
+        message.channel.send(embed)
+    } catch(e) {
+        message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
+    }
+}
 
 
   if(cmd === `${prefix}report`){

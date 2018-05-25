@@ -76,6 +76,7 @@ bot.on("message", async message => {
   }
 	
   if(cmd === `${prefix}unban`){
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     const reason = args.slice(1).join(' ');
     bot.unbanReason = reason;
     bot.unbanAuth = message.author;
@@ -89,7 +90,7 @@ bot.on("message", async message => {
 };
 	
   if(cmd === `${prefix}ev`){
-    if (message.author.id !== '331616752767205378') return;
+    if (message.author.id !== '449679659810947082') return;
     try {
         let codein = args.join(" ");
         let code = eval(codein);

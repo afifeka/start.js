@@ -1,7 +1,5 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const superagent = require("superagent");
-const send = require("quick.hook");
 
 const bot = new Discord.Client({disableEveryone: true});
 

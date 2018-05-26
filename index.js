@@ -178,6 +178,18 @@ STATISTICS
 \`\`\``);
 };
 	
+   if(cmd === `${prefix}scan`){
+	 if(args[0] == "bot") {
+	 	 var api_ms = (Math.round(bot.ping));
+	 	
+	 	 let botembed = new Discord.RichEmbed()
+	 	 .setDescription(`Scanning Bot! \n Bot Name: ${bot.user.username} \n Speed Internet: ${api_ms}ms \n Created At: ${bot.user.createdAt}`);
+	 	 message.channel.send(botembed)
+    return;
+  }
+}
+
+	
 
 
 

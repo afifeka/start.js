@@ -180,21 +180,6 @@ STATISTICS
 \`\`\``);
 };
 	
-   if(cmd === `${prefix}neko`){
-	   
-    let {body} = await superagent
-    .get(`https://nekos.life/api/lewd/neko`);
-    if (!message.channel.nsfw) return message.reply("You can use this command only on nsfw channels!");
-  
-    let hentaiEmbed = new Discord.RichEmbed()
-    .setColor("#ff9900")
-    .setTitle("Why does someone put a command like this?")
-    .setImage(body.neko)
-    .setFooter(`Bot Version: ${Discord.version}`);
-
-    message.channel.send(hentaiEmbed);
-
-}
 
 
 

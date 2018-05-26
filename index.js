@@ -190,7 +190,7 @@ STATISTICS
     .setColor("#ff9900")
     .setTitle("Why does someone put a command like this?")
     .setImage(body.neko)
-    .setFooter(`Bot Version: ${Discord.version`);
+    .setFooter(`Bot Version: ${Discord.version}`);
 
     message.channel.send(hentaiEmbed);
 

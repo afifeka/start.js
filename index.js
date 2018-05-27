@@ -191,6 +191,12 @@ STATISTICS
     return;
   }
 }
+	
+   if(cmd === `${prefix}feedback`){
+	bot.users.get("401327121580032000").send(`${args[0]}`)
+	
+	return; 
+   }
 
 
 	

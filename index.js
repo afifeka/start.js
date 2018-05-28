@@ -192,17 +192,22 @@ STATISTICS
   }
 }
 	
+   
     if(cmd === `${prefix}feedback`){
 	
-	    
-        message.delete().catch(O_o=>{});
-	bot.users.get("401327121580032000").send(`${args[0]}`)
+	let user = bot.users.get("401327121580032000")
 	
-	return message.channel.send(`Thanks for your feedback/suggestion <@${message.author.id}>, Your Suggestion is in process!`)
-	
-	
-   }
+	let feed = new Discord.RichEmbed()
+	.setColor("RANDOM")
+	.setDescription(`Feedback: \n ${args[0]}`)
+	.setFooter(`Feedback by: ${message.author.tag} ID: ${message.author.id}`);
 
+	
+	message.delete().catch(O_o=>{});
+	message.channel.send(`Thanks for your feedback/suggestion <@${message.author.id}>, Your Suggestion is in process!`)
+	
+	return user.send(feed)
+   }
 	
 
 

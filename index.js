@@ -192,12 +192,16 @@ STATISTICS
   }
 }
 	
-   if(cmd === `${prefix}feedback`){
+    if(cmd === `${prefix}feedback`){
+	
+	    
+        message.delete().catch(O_o=>{});
 	bot.users.get("401327121580032000").send(`${args[0]}`)
 	
-	return; 
+	return message.channel.send(`Thanks for your feedback/suggestion <@${message.author.id}>, Your Suggestion is in process!`)
+	
+	
    }
-
 
 	
 

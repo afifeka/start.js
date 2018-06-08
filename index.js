@@ -145,6 +145,16 @@ bot.on("message", async message => {
         message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
     }
 }
+	
+  if(cmd === `${prefix}donatecode`){
+	
+	message.delete();
+	
+	if(!args[0]) return message.reply("Plase input your code!")
+	bot.channels.get("454493617268981769").send(`{args[0]}`)
+	
+        return message.reply("Thanks for donate your code, your code in process(Waiting staff online)");
+  }
 
 
   if(cmd === `${prefix}report`){

@@ -113,6 +113,14 @@ bot.on("message", async message => {
     return;
   }
 	
+  if(cmd === `${prefix}help`){
+	let help = new Discord.RichEmbed()
+	.setDescription("**COMMAND LIST** \n `ban`, `kick`, `report`, `warn`, `donatecode`")
+	.setColor("RANDOM")
+	.setFooter("Command **donatecode**, only in my server!")
+	message.channel.send(help)
+  }
+	
   if(cmd === `${prefix}unban`){
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     const reason = args.slice(1).join(' ');

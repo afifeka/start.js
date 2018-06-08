@@ -28,6 +28,23 @@ bot.on("guildMemberAdd", member => {
 	member.addRole(role)
 });
 
+bot.on("guildMemberRemove", member => {
+	
+	console.log(`${member.author.tag} Leave The Server ${member.guild.name}`);
+	
+	let channel = member.guild.channels.find("name", "mod-logs")
+	
+	var removemember = new Discord.RichEmbed()
+	.setDescription(`User <@${member.author.id}>, has leave the server.`)
+	.setColor("RANDOM")
+	
+	.setFooter(`${member.guild.name}`)
+	
+	channel.send(removemember);
+	
+})
+
+
 
 
 bot.on("message", async message => {

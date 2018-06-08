@@ -8,7 +8,6 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setGame("PSIM 1969");
 });
 
 
@@ -163,52 +162,6 @@ bot.on("message", async message => {
   return; 
 }
 
-  if(cmd === `${prefix}info`){
-	
-	message.channel.send(`
-
-**Statistics**
-\`\`\`
-STATISTICS
-• Mem Usage    : ${(process.memoryUsage().heapUsed / 1024 / 
-1024).toFixed(2)} MB
-• Swap Size    : ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB
-• Uptime       : ${bot.uptime}
-• Users        : ${bot.users.size}
-• Servers      : ${bot.guilds.size}
-• Channels     : ${bot.channels.size}
-• Discord.js   : v${Discord.version}
-\`\`\``);
-};
-	
-   if(cmd === `${prefix}scan`){
-	 if(args[0] == "bot") {
-	 	 var api_ms = (Math.round(bot.ping));
-	 	
-	 	 let botembed = new Discord.RichEmbed()
-	 	 .setDescription(`Scanning Bot! \n Bot Name: ${bot.user.username} \n Speed Internet: ${api_ms}ms \n Created At: ${bot.user.createdAt}`);
-	 	 message.channel.send(botembed)
-    return;
-  }
-}
-	
-   
-    if(cmd === `${prefix}feedback`){
-	
-	let user = bot.users.get("401327121580032000")
-	
-	let feed = new Discord.RichEmbed()
-	.setColor("RANDOM")
-	.setDescription(`Feedback: \n ${args[0]}`)
-	.setFooter(`Feedback by: ${message.author.tag} ID: ${message.author.id}`);
-
-	
-	message.delete().catch(O_o=>{});
-	message.channel.send(`Thanks for your feedback/suggestion <@${message.author.id}>, Your Suggestion is in process!`)
-	
-	return user.send(feed)
-   }
-	
 
 
 

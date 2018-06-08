@@ -10,6 +10,25 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 });
 
+bot.on("guildMemberAdd", member => {
+	
+	console.log(`${member} Joined The Server ${member.guild.name}`);
+	
+	let channel = member.guild.channels.find("name", "mod-logs");
+	
+	var addmember = new Discord.RichEmbed()
+	.setDescription(`User ${member}, has joined the server.`)
+	.setColor("RANDOM")
+	.setFooter(`${member.guild.name}`);
+	
+	channel.send(addmember);
+	
+	var role = member.guild.roles.find("name", "Member");
+	
+	member.addRole(role)
+});
+
+
 
 bot.on("message", async message => {
   if(message.author.bot) return;
